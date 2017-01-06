@@ -15,7 +15,7 @@ class Repo: Object {
     dynamic var name = ""
     dynamic var id: Int = 0
     dynamic var stars = 0
-    dynamic var pushedAt: NSTimeInterval = 0
+    dynamic var pushedAt: TimeInterval = 0
     
     //MARK: meta
     override class func primaryKey() -> String? { return "id" }

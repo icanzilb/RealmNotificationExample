@@ -8,10 +8,10 @@
 
 import UIKit
 
-func delay(seconds seconds: UInt32, completion:()->Void) {
-    let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * Double(seconds) ))
+func delay(seconds: UInt32, completion:@escaping ()->Void) {
+    let popTime = DispatchTime.now() + Double(Int64( Double(NSEC_PER_SEC) * Double(seconds) )) / Double(NSEC_PER_SEC)
     
-    dispatch_after(popTime, dispatch_get_main_queue()) {
+    DispatchQueue.main.asyncAfter(deadline: popTime) {
         completion()
     }
 }
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let api = GitHubAPI()
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         api.startFetching()
         return true
     }

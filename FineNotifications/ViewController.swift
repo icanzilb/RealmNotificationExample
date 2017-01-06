@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     let repos: Results<Repo> = {
         let realm = try! Realm()
-        return realm.objects(Repo).sorted("pushedAt", ascending: false)
+        return realm.objects(Repo.self).sorted(byProperty: "pushedAt", ascending: false)
     }()
     var token: NotificationToken?
     
@@ -26,31 +26,31 @@ class ViewController: UIViewController {
             guard let tableView = self?.tableView else { return }
 
             switch changes {
-            case .Initial:
+            case .initial:
                 tableView.reloadData()
                 break
-            case .Update(let results, let deletions, let insertions, let modifications):
+            case .update(let results, let deletions, let insertions, let modifications):
                 
                 tableView.beginUpdates()
                 
                 //re-order repos when new pushes happen
-                tableView.insertRowsAtIndexPaths(insertions.map { NSIndexPath(forRow: $0, inSection: 0) },
-                    withRowAnimation: .Automatic)
-                tableView.deleteRowsAtIndexPaths(deletions.map { NSIndexPath(forRow: $0, inSection: 0) },
-                    withRowAnimation: .Automatic)
+                tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) },
+                                     with: .automatic)
+                tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) },
+                                     with: .automatic)
 
                 //flash cells when repo gets more stars
                 for row in modifications {
-                    let indexPath = NSIndexPath(forRow: row, inSection: 0)
+                    let indexPath = IndexPath(row: row, section: 0)
                     let repo = results[indexPath.row]
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! RepoCell
+                    let cell = tableView.cellForRow(at: indexPath) as! RepoCell
                     cell.configureWith(repo)
                     cell.flashBackground()
                 }
                 
                 tableView.endUpdates()
                 break
-            case .Error(let error):
+            case .error(let error):
                 print(error)
                 break
             }
@@ -59,14 +59,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let repo = repos[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("RepoCell") as! RepoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as! RepoCell
         cell.configureWith(repo)
         return cell
     }

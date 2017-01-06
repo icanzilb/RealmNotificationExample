@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16318F8E7BA5FC1980AD3C93 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F24973D3C7D199954D2E14 /* Pods.framework */; };
 		9C08BDE61CD3AED800F760EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08BDE51CD3AED800F760EE /* AppDelegate.swift */; };
 		9C08BDE81CD3AED800F760EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08BDE71CD3AED800F760EE /* ViewController.swift */; };
 		9C08BDEB1CD3AED800F760EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C08BDE91CD3AED800F760EE /* Main.storyboard */; };
@@ -21,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		54282323B48DFA18572EF8FD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6482F77FC6449295158E6CC1 /* Pods-FineNotifications.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineNotifications.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FineNotifications/Pods-FineNotifications.debug.xcconfig"; sourceTree = "<group>"; };
 		985C268540A587C5128917D6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9C08BDE21CD3AED800F760EE /* FineNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C08BDE51CD3AED800F760EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +34,8 @@
 		9C77C64B1CD3B0C800E3B4D5 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		9C77C64D1CD3B12300E3B4D5 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		B9F24973D3C7D199954D2E14 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D05276E52CA778BDF53169 /* Pods-FineNotifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FineNotifications.release.xcconfig"; path = "Pods/Target Support Files/Pods-FineNotifications/Pods-FineNotifications.release.xcconfig"; sourceTree = "<group>"; };
+		F096A7C0DC470FD12D12CCB9 /* Pods_FineNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FineNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16318F8E7BA5FC1980AD3C93 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +113,8 @@
 			children = (
 				985C268540A587C5128917D6 /* Pods.debug.xcconfig */,
 				54282323B48DFA18572EF8FD /* Pods.release.xcconfig */,
+				6482F77FC6449295158E6CC1 /* Pods-FineNotifications.debug.xcconfig */,
+				C0D05276E52CA778BDF53169 /* Pods-FineNotifications.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B9F24973D3C7D199954D2E14 /* Pods.framework */,
+				F096A7C0DC470FD12D12CCB9 /* Pods_FineNotifications.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,12 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C08BDF41CD3AED800F760EE /* Build configuration list for PBXNativeTarget "FineNotifications" */;
 			buildPhases = (
-				4A2218A8C2A1156363221CE9 /* Check Pods Manifest.lock */,
+				4A2218A8C2A1156363221CE9 /* [CP] Check Pods Manifest.lock */,
 				9C08BDDE1CD3AED800F760EE /* Sources */,
 				9C08BDDF1CD3AED800F760EE /* Frameworks */,
 				9C08BDE01CD3AED800F760EE /* Resources */,
-				AF44D0047C25523ADCC67A2E /* Embed Pods Frameworks */,
-				F1D2AB44436F3373470AEC6A /* Copy Pods Resources */,
+				AF44D0047C25523ADCC67A2E /* [CP] Embed Pods Frameworks */,
+				F1D2AB44436F3373470AEC6A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,11 +158,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Realm Inc.";
 				TargetAttributes = {
 					9C08BDE11CD3AED800F760EE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9MF8G8D9Y5;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -195,49 +201,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A2218A8C2A1156363221CE9 /* Check Pods Manifest.lock */ = {
+		4A2218A8C2A1156363221CE9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		AF44D0047C25523ADCC67A2E /* Embed Pods Frameworks */ = {
+		AF44D0047C25523ADCC67A2E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FineNotifications/Pods-FineNotifications-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F1D2AB44436F3373470AEC6A /* Copy Pods Resources */ = {
+		F1D2AB44436F3373470AEC6A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FineNotifications/Pods-FineNotifications-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -291,8 +297,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -336,8 +344,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -356,31 +366,38 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		9C08BDF51CD3AED800F760EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 985C268540A587C5128917D6 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 6482F77FC6449295158E6CC1 /* Pods-FineNotifications.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9MF8G8D9Y5;
 				INFOPLIST_FILE = FineNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.realm.FineNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		9C08BDF61CD3AED800F760EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54282323B48DFA18572EF8FD /* Pods.release.xcconfig */;
+			baseConfigurationReference = C0D05276E52CA778BDF53169 /* Pods-FineNotifications.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9MF8G8D9Y5;
 				INFOPLIST_FILE = FineNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.realm.FineNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

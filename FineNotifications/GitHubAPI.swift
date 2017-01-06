@@ -10,27 +10,29 @@ import Foundation
 import RealmSwift
 import AFDateHelper
 
+typealias JSONObject = [String: AnyObject]
+
 let username = "realm"
 
 class GitHubAPI {
     
-    let repoUrl = NSURL(string: "https://api.github.com/users/\(username)/repos?sort=pushed&direction=desc&type=owner")!
+    let repoUrl = URL(string: "https://api.github.com/users/\(username)/repos?sort=pushed&direction=desc&type=owner")!
     
     func startFetching() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {[weak self] in
-            guard let `self` = self else {return}
+        DispatchQueue.global(qos: .background).async {[weak self] in
+            guard let this = self else { return }
             
-            NSURLSession.sharedSession().dataTaskWithURL(self.repoUrl, completionHandler: { data, response, error in
+            URLSession.shared.dataTask(with: this.repoUrl, completionHandler: { data, response, error in
                 print("updated")
-                if let data = data, let json = try! NSJSONSerialization.JSONObjectWithData(data, options: []) as? Array<[String: AnyObject]> {
-                    self.persistRepos(json)
+                if let data = data, let json = try! JSONSerialization.jsonObject(with: data, options: []) as? Array<JSONObject> {
+                    this.persistRepos(json)
                 }
-                delay(seconds: 10, completion: self.startFetching)
+                delay(seconds: 10, completion: this.startFetching)
             }).resume()
         }
     }
     
-    func persistRepos(json: Array<[String: AnyObject]>) {
+    func persistRepos(_ json: Array<[String: AnyObject]>) {
         let realm = try! Realm()
         try! realm.write {
             for jsonRepo in json {
@@ -41,10 +43,10 @@ class GitHubAPI {
                         break
                 }
                 
-                if let repo = realm.objectForPrimaryKey(Repo.self, key: id) {
+                if let repo = realm.object(ofType: Repo.self, forPrimaryKey: id) {
                     //update
-                    let lastPushDate = NSDate(fromString: pushedAt, format: .ISO8601(.DateTimeSec))
-                    if repo.pushedAt.distanceTo(lastPushDate.timeIntervalSinceReferenceDate) > 1e-16 {
+                    let lastPushDate = Date(fromString: pushedAt, format: .iso8601(.DateTimeSec))
+                    if repo.pushedAt.distance(to: lastPushDate.timeIntervalSinceReferenceDate) > 1e-16 {
                         repo.pushedAt = lastPushDate.timeIntervalSinceReferenceDate
                     }
                     if repo.stars != stars {
@@ -56,7 +58,7 @@ class GitHubAPI {
                     repo.name = name
                     repo.stars = stars
                     repo.id = id
-                    repo.pushedAt = NSDate(fromString: pushedAt, format: .ISO8601(.DateTimeSec)).timeIntervalSinceReferenceDate
+                    repo.pushedAt = Date(fromString: pushedAt, format: .iso8601(.DateTimeSec)).timeIntervalSinceReferenceDate
                     realm.add(repo)
                 }
             }
