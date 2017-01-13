@@ -16,6 +16,7 @@
 		9C77C6471CD3B07300E3B4D5 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C6461CD3B07300E3B4D5 /* RepoCell.swift */; };
 		9C77C64C1CD3B0C800E3B4D5 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C64B1CD3B0C800E3B4D5 /* Repo.swift */; };
 		9C77C64E1CD3B12300E3B4D5 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C64D1CD3B12300E3B4D5 /* GitHubAPI.swift */; };
+		BA5F8BE17A426E1EA9535234 /* Pods_FineNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F096A7C0DC470FD12D12CCB9 /* Pods_FineNotifications.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5F8BE17A426E1EA9535234 /* Pods_FineNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

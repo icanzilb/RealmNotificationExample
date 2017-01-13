@@ -43,9 +43,12 @@ class ViewController: UIViewController {
                 for row in modifications {
                     let indexPath = IndexPath(row: row, section: 0)
                     let repo = results[indexPath.row]
-                    let cell = tableView.cellForRow(at: indexPath) as! RepoCell
-                    cell.configureWith(repo)
-                    cell.flashBackground()
+                    if let cell = tableView.cellForRow(at: indexPath) as? RepoCell {
+                        cell.configureWith(repo)
+                        cell.flashBackground()
+                    } else {
+                        print("cell not found for \(indexPath)")
+                    }
                 }
                 
                 tableView.endUpdates()
